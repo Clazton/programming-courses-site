@@ -1,0 +1,25 @@
+{
+  "name": "course-website",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clazton/programming-courses-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Clazton/programming-courses-site/issues"
+  },
+  "homepage": "https://github.com/Clazton/programming-courses-site#readme",
+  "description": ""
+}

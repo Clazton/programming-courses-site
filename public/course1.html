@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python for Beginners</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .lesson { margin-bottom: 20px; }
+    .question { font-weight: bold; }
+    .options button {
+      display: block;
+      margin: 5px 0;
+      padding: 10px;
+      width: 100%;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h1>Python for Beginners</h1>
+
+    <div class="lesson">
+      <h2>Lesson 1: Variables & Data Types</h2>
+      <p>In Python, variables are dynamically typed. You don’t declare the type — Python figures it out.</p>
+      <pre><code>x = 5
+name = "Alice"
+is_happy = True</code></pre>
+    </div>
+
+    <div class="lesson">
+      <h2>Quiz: What type is the variable `name`?</h2>
+      <div class="question">What is the type of the variable `name = "Alice"`?</div>
+      <div class="options">
+        <button onclick="checkAnswer(this, 'wrong')">Integer</button>
+        <button onclick="checkAnswer(this, 'correct')">String</button>
+        <button onclick="checkAnswer(this, 'wrong')">Boolean</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <a href="dashboard.html">← Back to Dashboard</a>
+  </div>
+
+  <script>
+    function checkAnswer(button, status) {
+      const feedback = button.parentElement.nextElementSibling;
+      if (status === 'correct') {
+        feedback.textContent = "✅ Correct! A string is text enclosed in quotes.";
+        feedback.style.color = "green";
+      } else {
+        feedback.textContent = "❌ Incorrect. Try again!";
+        feedback.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
