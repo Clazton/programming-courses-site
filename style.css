@@ -1,318 +1,283 @@
-/* General Styles */
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  background: #ff4d4d; /* red background */
+  background: #b22222; /* firebrick red */
   color: #fff;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
 }
 
-/* Utility */
+/* Hide elements with 'hidden' class */
 .hidden {
-  display: none;
+  display: none !important;
 }
 
-/* Login Page */
+/* Login page styles */
 .login-page {
-  background: #b30000;
-  padding: 40px 60px;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  background: #8b0000;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   width: 350px;
   text-align: center;
   animation: fadeIn 1s ease forwards;
 }
 
-.login-container h1 {
-  margin-bottom: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
+.login-page h1 {
+  margin-bottom: 0.5rem;
 }
 
-.subtitle {
-  margin-bottom: 25px;
-  font-weight: 500;
-  color: #ffcccc;
+.login-page .subtitle {
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  color: #ffdddd;
 }
 
-input[type="text"],
-input[type="password"] {
+.login-page input {
   width: 100%;
-  padding: 12px 15px;
-  margin: 10px 0;
-  border-radius: 8px;
+  padding: 0.8rem;
+  margin: 0.5rem 0 1rem;
   border: none;
-  font-size: 16px;
-  outline: none;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
-  box-shadow: 0 0 8px #ff6666;
-}
-
-button#loginBtn {
-  background: #ff0000;
-  border: none;
+.login-page button {
+  background: #ff4444;
   color: white;
-  font-weight: 600;
-  padding: 12px 0;
+  border: none;
+  padding: 0.8rem 0;
   width: 100%;
-  border-radius: 8px;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 18px;
+  border-radius: 6px;
   transition: background 0.3s ease;
+  font-size: 1.1rem;
 }
 
-button#loginBtn:hover {
-  background: #cc0000;
+.login-page button:hover {
+  background: #ff0000;
 }
 
 .error-msg {
-  color: #ff9999;
-  margin-top: 10px;
-  font-weight: 600;
+  color: #ffbbbb;
+  margin-top: 0.5rem;
+  height: 1.2rem;
 }
 
-/* Dashboard */
+/* Dashboard styles */
 .dashboard {
   width: 90vw;
-  max-width: 900px;
-  background: #b30000;
-  border-radius: 15px;
-  padding: 20px 30px 40px;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+  max-width: 1000px;
+  background: #7f0000;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+  padding: 1rem 2rem;
   animation: fadeIn 1s ease forwards;
+  color: #fff;
 }
 
-header {
+.dashboard header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 1rem;
 }
 
-header h2 {
-  font-weight: 700;
-  letter-spacing: 2px;
+.dashboard header h2 {
+  font-weight: 600;
 }
 
 #logoutBtn {
-  background: transparent;
-  border: 2px solid #fff;
-  color: #fff;
-  padding: 8px 15px;
+  background: #cc0000;
+  border: none;
+  padding: 0.5rem 1rem;
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s ease;
+  color: white;
 }
 
 #logoutBtn:hover {
   background: #ff0000;
 }
 
-/* Courses Section */
 main {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
 .course {
-  background: #ff6666;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+  background: #a02020;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
   transition: transform 0.3s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .course:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.7);
+  transform: translateY(-5px);
 }
 
 .course h3 {
-  margin-top: 0;
+  margin: 0 0 0.5rem;
   font-weight: 700;
 }
 
 .course p {
-  font-weight: 500;
-  margin-bottom: 15px;
+  flex-grow: 1;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 
 .start-course-btn {
-  background: #b30000;
+  background: #ff4444;
   border: none;
-  padding: 10px 18px;
-  color: white;
+  padding: 0.6rem;
+  border-radius: 6px;
   font-weight: 600;
-  border-radius: 12px;
+  color: white;
   cursor: pointer;
-  font-size: 15px;
   transition: background 0.3s ease;
 }
 
 .start-course-btn:hover {
-  background: #7a0000;
+  background: #ff0000;
 }
 
-/* Modal Styles */
+/* Modal styles */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(179, 0, 0, 0.95);
+  background-color: rgba(139, 0, 0, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  z-index: 9999;
+  padding: 1rem;
   overflow-y: auto;
+  z-index: 1000;
 }
 
 .modal-content {
-  background: #ff3333;
-  border-radius: 20px;
-  max-width: 800px;
-  width: 100%;
-  padding: 30px 40px;
+  background: #7f0000;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 700px;
+  padding: 1.5rem 2rem;
+  color: white;
   position: relative;
-  color: #fff;
-  box-shadow: 0 0 30px #ff0000;
-  animation: slideDown 0.5s ease forwards;
+  animation: slideIn 0.4s ease forwards;
 }
 
 .close-btn {
   position: absolute;
-  top: 20px;
-  right: 25px;
-  font-size: 28px;
+  right: 15px;
+  top: 15px;
+  font-size: 2rem;
+  background: none;
   border: none;
-  background: transparent;
-  color: white;
+  color: #fff;
   cursor: pointer;
   font-weight: 700;
+  line-height: 1;
   transition: color 0.3s ease;
 }
 
 .close-btn:hover {
-  color: #000;
+  color: #ff4444;
 }
 
-.modal-content h2 {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-weight: 700;
-  text-align: center;
+#courseContent {
+  white-space: pre-wrap;
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-/* Course Content Styling */
-#courseContent h3, #courseContent h4 {
-  font-weight: 600;
-}
-
-#courseContent pre {
-  background: #b30000;
-  padding: 15px;
-  border-radius: 10px;
-  overflow-x: auto;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-#courseContent ul {
-  list-style-type: disc;
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
-
-#courseContent code {
-  background: #ff9999;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: monospace;
-  color: #660000;
-  font-weight: 700;
-}
-
-/* Quiz */
 #quizBtn {
-  display: block;
-  margin: 25px auto 0 auto;
-  background: #b30000;
+  margin-top: 20px;
+  background: #ff4444;
   border: none;
-  padding: 12px 30px;
-  color: white;
-  font-weight: 700;
-  border-radius: 15px;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 16px;
+  color: white;
   transition: background 0.3s ease;
 }
 
 #quizBtn:hover {
-  background: #7a0000;
+  background: #ff0000;
 }
 
 #quizSection {
-  margin-top: 30px;
-  border-top: 2px solid #fff;
-  padding-top: 25px;
+  margin-top: 20px;
 }
 
 .quiz-question {
-  font-weight: 700;
-  margin-bottom: 10px;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 
 .quiz-option {
   display: block;
-  margin-bottom: 10px;
-  font-weight: 500;
+  margin-bottom: 8px;
   cursor: pointer;
+  font-weight: 400;
 }
 
 #submitQuiz {
-  margin-top: 15px;
-  background: #b30000;
+  margin-top: 10px;
+  background: #cc0000;
   border: none;
-  padding: 12px 30px;
-  color: white;
-  font-weight: 700;
-  border-radius: 15px;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 16px;
+  color: white;
   transition: background 0.3s ease;
 }
 
 #submitQuiz:hover {
-  background: #7a0000;
+  background: #ff0000;
 }
 
 #quizResult {
-  margin-top: 20px;
+  margin-top: 15px;
   font-weight: 700;
-  font-size: 18px;
-  text-align: center;
+  font-size: 1.1rem;
   color: #ffdddd;
 }
 
 /* Animations */
 @keyframes fadeIn {
-  0% {opacity: 0; transform: translateY(-10px);}
-  100% {opacity: 1; transform: translateY(0);}
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
-@keyframes slideDown {
-  0% {opacity: 0; transform: translateY(-40px);}
-  100% {opacity: 1; transform: translateY(0);}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
