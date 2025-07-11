@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Programming Courses</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CodeHub Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <div class="container">
-    <!-- LOGIN SCREEN -->
-    <div class="login-screen" id="loginScreen">
-      <h2>Login to CodeZone</h2>
-      <input type="text" id="username" placeholder="Username">
-      <input type="password" id="password" placeholder="Password">
-      <button onclick="login()">Login</button>
-    </div>
+  <div class="login-container" id="loginPage">
+    <h1>CodeHub Login</h1>
+    <input type="text" id="username" placeholder="Username"/>
+    <input type="password" id="password" placeholder="Password"/>
+    <button onclick="login()">Login</button>
+  </div>
 
-    <!-- ADMIN DASHBOARD -->
-    <div class="dashboard hidden" id="adminDashboard">
-      <h1>Admin Dashboard</h1>
-      <p>Manage users and courses</p>
-      <div class="courses">
-        <div class="course admin-card">
-          <h3>👨‍💼 Manage Students</h3>
-          <p>View, edit, or remove students.</p>
-          <button>Go</button>
-        </div>
-        <div class="course admin-card">
-          <h3>📚 Edit Courses</h3>
-          <p>Add or update programming courses.</p>
-          <button>Go</button>
-        </div>
+  <div class="dashboard hidden" id="dashboard">
+    <h2>Welcome to CodeHub</h2>
+
+    <!-- HTML Course -->
+    <div class="course">
+      <h3>HTML & CSS Fundamentals</h3>
+      <p>Learn the basics of web structure and styling from scratch. Cover semantic HTML, flexbox, and responsive design.</p>
+      <div class="quiz">
+        <p>Quiz: What does HTML stand for?</p>
+        <input type="text" placeholder="Your answer..." />
       </div>
     </div>
 
-    <!-- STUDENT DASHBOARD -->
-    <div class="dashboard hidden" id="studentDashboard">
-      <h1>Welcome to CodeZone!</h1>
-      <p>Select a course to get started:</p>
-      <div class="courses">
-        <div class="course">
-          <h3>JavaScript Fundamentals</h3>
-          <p>Learn the basics of JavaScript.</p>
-          <button>Start Course</button>
-        </div>
-        <div class="course">
-          <h3>Python for Beginners</h3>
-          <p>Intro to Python programming language.</p>
-          <button>Start Course</button>
-        </div>
-        <div class="course">
-          <h3>Web Development (HTML & CSS)</h3>
-          <p>Build beautiful websites.</p>
-          <button>Start Course</button>
-        </div>
-        <div class="course">
-          <h3>React.js Essentials</h3>
-          <p>Build modern UI with React.</p>
-          <button>Start Course</button>
-        </div>
-        <div class="course">
-          <h3>C++ Programming</h3>
-          <p>Dive into high-performance code.</p>
-          <button>Start Course</button>
-        </div>
+    <!-- JavaScript Course -->
+    <div class="course">
+      <h3>JavaScript Essentials</h3>
+      <p>Dive into variables, functions, loops, DOM manipulation, and ES6+ features. Perfect for interactivity.</p>
+      <div class="quiz">
+        <p>Quiz: What is a closure in JavaScript?</p>
+        <input type="text" placeholder="Your answer..." />
+      </div>
+    </div>
+
+    <!-- Python Course -->
+    <div class="course">
+      <h3>Python Programming</h3>
+      <p>Master Python syntax, data structures, file handling, and basic OOP concepts in a hands-on manner.</p>
+      <div class="quiz">
+        <p>Quiz: What is the difference between a list and a tuple?</p>
+        <input type="text" placeholder="Your answer..." />
+      </div>
+    </div>
+
+    <!-- React Course -->
+    <div class="course">
+      <h3>React.js Development</h3>
+      <p>Build dynamic UIs using components, hooks, JSX, state management, and routing.</p>
+      <div class="quiz">
+        <p>Quiz: What is the purpose of useEffect in React?</p>
+        <input type="text" placeholder="Your answer..." />
+      </div>
+    </div>
+
+    <!-- Node.js Course -->
+    <div class="course">
+      <h3>Node.js & Express</h3>
+      <p>Create backend servers, build REST APIs, and understand asynchronous JS and database integration.</p>
+      <div class="quiz">
+        <p>Quiz: What is middleware in Express?</p>
+        <input type="text" placeholder="Your answer..." />
       </div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
