@@ -1,3 +1,5 @@
+// script.js
+
 const loginPage = document.getElementById('loginPage');
 const dashboard = document.getElementById('dashboard');
 const loginBtn = document.getElementById('loginBtn');
@@ -22,12 +24,13 @@ const courses = {
   'html-css': {
     title: "HTML & CSS Fundamentals",
     content: `
-      <h2>HTML Basics</h2>
-      <p>HTML is the language used to structure webpages. It uses tags to organize content.</p>
-      
-      <h3>1. HTML Document Structure</h3>
-      <pre><code>
-&lt;!DOCTYPE html&gt;
+<section>
+  <h2>HTML Basics</h2>
+  <p>HTML is the language used to structure webpages. It uses tags to organize content.</p>
+
+  <article>
+    <h3>1. HTML Document Structure</h3>
+    <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;Page Title&lt;/title&gt;
@@ -37,111 +40,131 @@ const courses = {
     &lt;p&gt;This is a paragraph.&lt;/p&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-      </code></pre>
-      <p>This is a simple HTML page with a heading and a paragraph.</p>
-      
-      <h3>2. Common HTML Tags</h3>
-      <ul>
-        <li><code>&lt;h1&gt;...&lt;/h1&gt;</code> to <code>&lt;h6&gt;...&lt;/h6&gt;</code>: Headings</li>
-        <li><code>&lt;p&gt;...&lt;/p&gt;</code>: Paragraphs</li>
-        <li><code>&lt;a href="url"&gt;...&lt;/a&gt;</code>: Links</li>
-        <li><code>&lt;img src="image.jpg" alt="description"&gt;</code>: Images</li>
-        <li><code>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</code>: Lists</li>
-      </ul>
-      
-      <h3>3. Example: Creating a Link</h3>
-      <p><code>&lt;a href="https://www.example.com"&gt;Visit Example&lt;/a&gt;</code></p>
-      
-      <h3>4. CSS Basics</h3>
-      <p>CSS is used to style and layout webpages. It controls colors, fonts, spacing, and more.</p>
-      
-      <h3>5. CSS Syntax</h3>
-      <pre><code>
-selector {
+</code></pre>
+    <p>This is a simple HTML page with a heading and a paragraph.</p>
+  </article>
+
+  <article>
+    <h3>2. Common HTML Tags</h3>
+    <ul>
+      <li><code>&lt;h1&gt;...&lt;/h1&gt;</code> to <code>&lt;h6&gt;...&lt;/h6&gt;</code>: Headings</li>
+      <li><code>&lt;p&gt;...&lt;/p&gt;</code>: Paragraphs</li>
+      <li><code>&lt;a href="url"&gt;...&lt;/a&gt;</code>: Links</li>
+      <li><code>&lt;img src="image.jpg" alt="description"&gt;</code>: Images</li>
+      <li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>: Lists</li>
+    </ul>
+  </article>
+
+  <article>
+    <h3>3. Example: Creating a Link</h3>
+    <p><code>&lt;a href="https://www.example.com"&gt;Visit Example&lt;/a&gt;</code></p>
+  </article>
+
+  <article>
+    <h3>4. CSS Basics</h3>
+    <p>CSS is used to style and layout webpages. It controls colors, fonts, spacing, and more.</p>
+  </article>
+
+  <article>
+    <h3>5. CSS Syntax</h3>
+    <pre><code>selector {
   property: value;
 }
-      </code></pre>
-      <p>Example: To make all paragraphs red:</p>
-      <pre><code>
-p {
+</code></pre>
+    <p>Example: To make all paragraphs red:</p>
+    <pre><code>p {
   color: red;
 }
-      </code></pre>
-      
-      <h3>6. Common Properties</h3>
-      <ul>
-        <li><code>color</code>: Text color</li>
-        <li><code>background-color</code>: Background color</li>
-        <li><code>font-size</code>: Text size</li>
-        <li><code>margin</code>: Space outside elements</li>
-        <li><code>padding</code>: Space inside elements</li>
-      </ul>
-      
-      <h3>7. Example: Styling a Button</h3>
-      <pre><code>
-button {
+</code></pre>
+  </article>
+
+  <article>
+    <h3>6. Common Properties</h3>
+    <ul>
+      <li><code>color</code>: Text color</li>
+      <li><code>background-color</code>: Background color</li>
+      <li><code>font-size</code>: Text size</li>
+      <li><code>margin</code>: Space outside elements</li>
+      <li><code>padding</code>: Space inside elements</li>
+    </ul>
+  </article>
+
+  <article>
+    <h3>7. Example: Styling a Button</h3>
+    <pre><code>button {
   background-color: red;
   color: white;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
 }
-      </code></pre>
-      
-      <h3>8. Practice</h3>
-      <p>Create a simple webpage with headings, paragraphs, links, and style them with CSS!</p>
-    `,
+</code></pre>
+  </article>
+
+  <article>
+    <h3>8. Practice</h3>
+    <p>Create a simple webpage with headings, paragraphs, links, and style them with CSS!</p>
+  </article>
+</section>
+`,
     quiz: [
-      {
-        q: "What does HTML stand for?",
-        a: ["HyperText Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"],
-        correct: 0
+      { 
+        q: "What does HTML stand for?", 
+        a: [ "HyperText Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language" ], 
+        correct: 0 
       },
-      {
-        q: "Which tag creates a hyperlink?",
-        a: ["<a>", "<link>", "<href>"],
-        correct: 0
+      { 
+        q: "Which tag creates a hyperlink?", 
+        a: ["<a>", "<link>", "<href>"], 
+        correct: 0 
       },
-      {
-        q: "Which CSS property changes text color?",
-        a: ["font-style", "color", "text-decoration"],
-        correct: 1
+      { 
+        q: "Which CSS property changes text color?", 
+        a: ["font-style", "color", "text-decoration"], 
+        correct: 1 
       }
     ]
   },
 
-  javascript: {
+  'javascript': {
     title: "JavaScript Essentials",
     content: `
-      <h2>JavaScript Basics</h2>
-      <p>JavaScript adds interactivity to webpages, letting you create dynamic content.</p>
-      
-      <h3>1. Variables and Data Types</h3>
-      <pre><code>
-let name = "Alice";    // String
+<section>
+  <h2>JavaScript Basics</h2>
+  <p>JavaScript adds interactivity to webpages, letting you create dynamic content.</p>
+
+  <article>
+    <h3>1. Variables and Data Types</h3>
+    <pre><code>let name = "Alice";    // String
 let age = 25;          // Number
 let isStudent = true;  // Boolean
-      </code></pre>
-      
-      <h3>2. Functions</h3>
-      <pre><code>
-function greet() {
+</code></pre>
+  </article>
+
+  <article>
+    <h3>2. Functions</h3>
+    <pre><code>function greet() {
   alert("Hello, World!");
 }
 greet();
-      </code></pre>
-      
-      <h3>3. Events</h3>
-      <p>JavaScript can respond to user actions like clicks.</p>
-      <pre><code>
-button.addEventListener('click', () => {
+</code></pre>
+  </article>
+
+  <article>
+    <h3>3. Events</h3>
+    <p>JavaScript can respond to user actions like clicks.</p>
+    <pre><code>button.addEventListener('click', () => {
   alert('Button clicked!');
 });
-      </code></pre>
-      
-      <h3>4. Practice</h3>
-      <p>Create a button that shows an alert when clicked.</p>
-    `,
+</code></pre>
+  </article>
+
+  <article>
+    <h3>4. Practice</h3>
+    <p>Create a button that shows an alert when clicked.</p>
+  </article>
+</section>
+`,
     quiz: [
       {
         q: "Which keyword declares a variable with block scope?",
@@ -165,36 +188,43 @@ button.addEventListener('click', () => {
     ]
   },
 
-  python: {
+  'python': {
     title: "Python Programming",
     content: `
-      <h2>Python Basics</h2>
-      <p>Python is a popular programming language for beginners and professionals.</p>
-      
-      <h3>1. Variables and Types</h3>
-      <pre><code>
-name = "Alice"
+<section>
+  <h2>Python Basics</h2>
+  <p>Python is a popular programming language for beginners and professionals.</p>
+
+  <article>
+    <h3>1. Variables and Types</h3>
+    <pre><code>name = "Alice"
 age = 25
 is_student = True
-      </code></pre>
-      
-      <h3>2. Control Structures</h3>
-      <pre><code>
-if age >= 18:
+</code></pre>
+  </article>
+
+  <article>
+    <h3>2. Control Structures</h3>
+    <pre><code>if age >= 18:
   print("Adult")
 else:
   print("Minor")
-      </code></pre>
-      
-      <h3>3. Loops</h3>
-      <pre><code>
-for i in range(5):
+</code></pre>
+  </article>
+
+  <article>
+    <h3>3. Loops</h3>
+    <pre><code>for i in range(5):
   print(i)
-      </code></pre>
-      
-      <h3>4. Practice</h3>
-      <p>Write a program that prints numbers 0 to 4 using a loop.</p>
-    `,
+</code></pre>
+  </article>
+
+  <article>
+    <h3>4. Practice</h3>
+    <p>Write a program that prints numbers 0 to 4 using a loop.</p>
+  </article>
+</section>
+`,
     quiz: [
       {
         q: "How do you write a comment in Python?",
@@ -214,30 +244,38 @@ for i in range(5):
     ]
   },
 
-  react: {
+  'react': {
     title: "React.js Development",
     content: `
-      <h2>React.js Basics</h2>
-      <p>React is a JavaScript library for building user interfaces.</p>
-      
-      <h3>1. Components</h3>
-      <pre><code>
-function Hello() {
+<section>
+  <h2>React.js Basics</h2>
+  <p>React is a JavaScript library for building user interfaces.</p>
+
+  <article>
+    <h3>1. Components</h3>
+    <pre><code>function Hello() {
   return &lt;h1&gt;Hello, React!&lt;/h1&gt;;
 }
-      </code></pre>
-      
-      <h3>2. JSX</h3>
-      <p>JSX is a syntax that looks like HTML in JavaScript.</p>
-      
-      <h3>3. State</h3>
-      <pre><code>
-const [count, setCount] = React.useState(0);
-      </code></pre>
-      
-      <h3>4. Practice</h3>
-      <p>Create a component that shows a button and a count that increases when clicked.</p>
-    `,
+</code></pre>
+  </article>
+
+  <article>
+    <h3>2. JSX</h3>
+    <p>JSX is a syntax that looks like HTML in JavaScript.</p>
+  </article>
+
+  <article>
+    <h3>3. State</h3>
+    <pre><code>const [count, setCount] = React.useState(0);
+</code></pre>
+  </article>
+
+  <article>
+    <h3>4. Practice</h3>
+    <p>Create a component that shows a button and a count that increases when clicked.</p>
+  </article>
+</section>
+`,
     quiz: [
       {
         q: "What is JSX?",
@@ -261,70 +299,179 @@ const [count, setCount] = React.useState(0);
     ]
   },
 
-  nodejs: {
+  'nodejs': {
     title: "Node.js & Express",
     content: `
-      <h2>Node.js & Express</h2>
-      <p>Node.js allows you to run JavaScript on the server side. Express is a framework for Node.js to build web servers.</p>
-      
-      <h3>1. Setting up a Server</h3>
-      <pre><code>
-const express = require('express');
-const app = express();
+<section>
+  <h2>Node.js & Express</h2>
+  <p>Node.js allows JavaScript to run on the server. Express is a framework for building web apps.</p>
 
-app.get('/', (req, res) => {
+  <article>
+    <h3>1. Setting up Express</h3>
+    <pre><code>const express = require('express');
+const app = express();
+app.listen(3000, () =&gt; console.log('Server started'));
+</code></pre>
+  </article>
+
+  <article>
+    <h3>2. Routes</h3>
+    <pre><code>app.get('/', (req, res) =&gt; {
   res.send('Hello World');
 });
+</code></pre>
+  </article>
 
-app.listen(3000, () => {
-  console.log('Server started on port 3000');
-});
-      </code></pre>
-      
-      <h3>2. Routing</h3>
-      <p>Express lets you handle different URLs with routes.</p>
-      
-      <h3>3. Middleware</h3>
-      <p>Functions that run between request and response.</p>
-      
-      <h3>4. Practice</h3>
-      <p>Build a simple server that responds with 'Hello World' on the homepage.</p>
-    `,
+  <article>
+    <h3>3. Practice</h3>
+    <p>Create a server that responds with "Hello World" on the home route.</p>
+  </article>
+</section>
+`,
     quiz: [
       {
-        q: "Which framework is commonly used with Node.js for building web servers?",
-        a: ["React", "Express", "Angular"],
-        correct: 1
+        q: "Which method defines a GET route in Express?",
+        a: ["app.get()", "app.post()", "app.route()"],
+        correct: 0
       },
       {
-        q: "What method handles HTTP GET requests in Express?",
-        a: ["app.post()", "app.get()", "app.put()"],
-        correct: 1
+        q: "How do you start an Express server?",
+        a: ["app.listen()", "server.start()", "app.run()"],
+        correct: 0
       },
       {
-        q: "What does middleware do in Express?",
-        a: [
-          "Handles errors only",
-          "Processes requests between client and server",
-          "Stores data in database"
-        ],
-        correct: 1
+        q: "Express is a framework for what?",
+        a: ["Backend web apps", "Frontend design", "Database management"],
+        correct: 0
       }
     ]
   }
 };
 
-// Login button, logout, modal, quiz logic remains the same
-// But make sure when loading course content you do:
+// Login logic
+loginBtn.addEventListener('click', () => {
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  if (username === USERNAME && password === PASSWORD) {
+    loginError.textContent = '';
+    loginPage.classList.add('hidden');
+    dashboard.classList.remove('hidden');
+    usernameInput.value = '';
+    passwordInput.value = '';
+  } else {
+    loginError.textContent = 'Incorrect username or password.';
+  }
+});
+
+// Logout logic
+logoutBtn.addEventListener('click', () => {
+  dashboard.classList.add('hidden');
+  loginPage.classList.remove('hidden');
+  courseModal.classList.add('hidden');
+  quizSection.classList.add('hidden');
+  quizBtn.classList.add('hidden');
+  quizResult.textContent = '';
+  quizForm.innerHTML = '';
+});
+
+// Start Course buttons
+document.querySelectorAll('.start-course-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const courseKey = button.closest('.course').dataset.course;
+    openCourseModal(courseKey);
+  });
+});
+
+// Open Course Modal and load content
 function openCourseModal(courseKey) {
   const course = courses[courseKey];
   if (!course) return;
+
   courseTitleEl.textContent = course.title;
-  courseContentEl.innerHTML = course.content; // <-- innerHTML to render HTML
+  courseContentEl.innerHTML = course.content;
+
   quizSection.classList.add('hidden');
   quizBtn.classList.remove('hidden');
   quizResult.textContent = '';
   quizForm.innerHTML = '';
+
   courseModal.classList.remove('hidden');
   courseModal.dataset.currentCourse = courseKey;
 }
+
+// Close Modal
+closeModalBtn.addEventListener('click', () => {
+  courseModal.classList.add('hidden');
+  quizSection.classList.add('hidden');
+  quizBtn.classList.remove('hidden');
+  quizResult.textContent = '';
+  quizForm.innerHTML = '';
+});
+
+// Show Quiz
+quizBtn.addEventListener('click', () => {
+  const courseKey = courseModal.dataset.currentCourse;
+  if (!courseKey) return;
+
+  const course = courses[courseKey];
+  if (!course.quiz) return;
+
+  quizBtn.classList.add('hidden');
+  quizSection.classList.remove('hidden');
+  quizResult.textContent = '';
+
+  // Build quiz form
+  quizForm.innerHTML = '';
+
+  course.quiz.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+
+    const questionP = document.createElement('p');
+    questionP.className = 'quiz-question';
+    questionP.textContent = `Q${index + 1}: ${item.q}`;
+    qDiv.appendChild(questionP);
+
+    item.a.forEach((option, i) => {
+      const label = document.createElement('label');
+      label.className = 'quiz-option';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q' + index;
+      input.value = i;
+
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(option));
+      qDiv.appendChild(label);
+    });
+
+    quizForm.appendChild(qDiv);
+  });
+});
+
+// Submit Quiz
+submitQuizBtn.addEventListener('click', () => {
+  const courseKey = courseModal.dataset.currentCourse;
+  if (!courseKey) return;
+
+  const course = courses[courseKey];
+  if (!course.quiz) return;
+
+  let score = 0;
+  const total = course.quiz.length;
+
+  for (let i = 0; i < total; i++) {
+    const selected = quizForm.querySelector(`input[name="q${i}"]:checked`);
+    if (!selected) {
+      alert(`Please answer question ${i + 1}`);
+      return;
+    }
+
+    if (parseInt(selected.value) === course.quiz[i].correct) {
+      score++;
+    }
+  }
+
+  quizResult.textContent = `You scored ${score} out of ${total}!`;
+});
