@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Programming Courses</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- LOGIN SCREEN -->
+    <div class="login-screen" id="loginScreen">
+      <h2>Login to CodeZone</h2>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <!-- ADMIN DASHBOARD -->
+    <div class="dashboard hidden" id="adminDashboard">
+      <h1>Admin Dashboard</h1>
+      <p>Manage users and courses</p>
+      <div class="courses">
+        <div class="course admin-card">
+          <h3>👨‍💼 Manage Students</h3>
+          <p>View, edit, or remove students.</p>
+          <button>Go</button>
+        </div>
+        <div class="course admin-card">
+          <h3>📚 Edit Courses</h3>
+          <p>Add or update programming courses.</p>
+          <button>Go</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STUDENT DASHBOARD -->
+    <div class="dashboard hidden" id="studentDashboard">
+      <h1>Welcome to CodeZone!</h1>
+      <p>Select a course to get started:</p>
+      <div class="courses">
+        <div class="course">
+          <h3>JavaScript Fundamentals</h3>
+          <p>Learn the basics of JavaScript.</p>
+          <button>Start Course</button>
+        </div>
+        <div class="course">
+          <h3>Python for Beginners</h3>
+          <p>Intro to Python programming language.</p>
+          <button>Start Course</button>
+        </div>
+        <div class="course">
+          <h3>Web Development (HTML & CSS)</h3>
+          <p>Build beautiful websites.</p>
+          <button>Start Course</button>
+        </div>
+        <div class="course">
+          <h3>React.js Essentials</h3>
+          <p>Build modern UI with React.</p>
+          <button>Start Course</button>
+        </div>
+        <div class="course">
+          <h3>C++ Programming</h3>
+          <p>Dive into high-performance code.</p>
+          <button>Start Course</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
