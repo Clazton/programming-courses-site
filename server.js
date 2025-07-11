@@ -16,27 +16,31 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Login API
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
+
   if (!username || !password) {
-    return res.status(400).json({ success: false, message: 'Missing username or password' });
+    return res.status(400).json({ success: false, message: 'Username & password required' });
   }
 
   const usersPath = path.join(__dirname, 'users.json');
+
   if (!fs.existsSync(usersPath)) {
-    return res.status(500).json({ success: false, message: 'User database not found' });
+    return res.status(500).json({ success: false, message: 'User data missing' });
   }
 
-  const usersData = fs.readFileSync(usersPath, 'utf-8');
-  const users = JSON.parse(usersData);
+  try {
+    const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'));
+    const user = users.find(u => u.username === username && u.password === password);
 
-  const user = users.find(u => u.username === username && u.password === password);
-  if (user) {
-    return res.json({ success: true });
-  } else {
-    return res.status(401).json({ success: false, message: 'Invalid username or password' });
+    if (user) {
+      return res.json({ success: true });
+    } else {
+      return res.status(401).json({ success: false, message: 'Invalid credentials' });
+    }
+  } catch {
+    return res.status(500).json({ success: false, message: 'Server error reading user data' });
   }
 });
 
-// Start server
 app.listen(PORT, () => {
-  console.log(`Server listening on http://localhost:${PORT}`);
+  console.log(`Server started on http://localhost:${PORT}`);
 });

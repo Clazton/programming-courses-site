@@ -3,55 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <title>Dashboard - Programming Courses</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="dashboard">
+  <div class="dashboard container">
     <h1>Welcome, <span id="usernameDisplay"></span>!</h1>
-    <div class="courses">
-      <div class="course-card" onclick="navigateTo('course1.html')">
-        <h2>Python for Beginners</h2>
-        <p>Learn the basics of Python programming including variables, loops, and functions.</p>
-        <button onclick="navigateTo('course1.html', event)">Start Course</button>
-      </div>
-      <div class="course-card" onclick="navigateTo('course2.html')">
-        <h2>JavaScript Essentials</h2>
-        <p>Understand the fundamentals of JavaScript and start building interactive websites.</p>
-        <button onclick="navigateTo('course2.html', event)">Start Course</button>
-      </div>
-      <div class="course-card" onclick="navigateTo('course3.html')">
-        <h2>HTML & CSS</h2>
-        <p>Design beautiful websites using HTML and CSS with modern practices.</p>
-        <button onclick="navigateTo('course3.html', event)">Start Course</button>
-      </div>
-      <div class="course-card" onclick="navigateTo('course4.html')">
-        <h2>Java Fundamentals</h2>
-        <p>Master core Java concepts, object-oriented programming, and more.</p>
-        <button onclick="navigateTo('course4.html', event)">Start Course</button>
-      </div>
-      <div class="course-card" onclick="navigateTo('course5.html')">
-        <h2>C++ Basics</h2>
-        <p>Get started with C++ syntax, variables, loops, and functions.</p>
-        <button onclick="navigateTo('course5.html', event)">Start Course</button>
-      </div>
+    <div class="courses" id="coursesContainer">
+      <!-- Course cards loaded dynamically -->
     </div>
   </div>
 
-  <script>
-    // Check login and display username
-    const user = localStorage.getItem('loggedInUser');
-    if (!user) {
-      window.location.href = 'index.html';
-    } else {
-      document.getElementById('usernameDisplay').textContent = user;
-    }
-
-    // Navigate helper
-    function navigateTo(page, event) {
-      if(event) event.stopPropagation();
-      window.location.href = page;
-    }
-  </script>
+  <script src="dashboard.js"></script>
 </body>
 </html>

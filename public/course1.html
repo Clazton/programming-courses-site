@@ -2,74 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Python for Beginners - Course</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <title>Python Basics - Programming Courses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="course-content">
-    <h2>Python for Beginners</h2>
-    <p>Welcome to Python! In this course, you'll learn variables, data types, loops, functions, and more.</p>
+  <div class="course-content container">
+    <h1>Python Basics</h1>
+    <section>
+      <h2>Introduction</h2>
+      <p>Python is a popular high-level programming language known for its readability and versatility.</p>
+      <p>Let's start with some basic concepts:</p>
+      <ul>
+        <li><strong>Variables:</strong> Containers for storing data values.</li>
+        <li><strong>Data Types:</strong> int, float, string, bool, list, dict, etc.</li>
+        <li><strong>Functions:</strong> Blocks of reusable code.</li>
+      </ul>
+    </section>
 
-    <h3>Variables and Data Types</h3>
-    <p>In Python, variables store data. Example:</p>
-    <pre>
-x = 5
-name = "ChatGPT"
-is_active = True
-    </pre>
+    <section>
+      <h2>Variables & Data Types</h2>
+      <pre><code>age = 25
+name = "Alice"
+height = 5.6
+is_student = True
+</code></pre>
+      <p>In Python, variables don't need explicit declaration of their type.</p>
+    </section>
 
-    <h3>Loops</h3>
-    <p>Loops help us repeat code. Example:</p>
-    <pre>
-for i in range(5):
-    print(i)
-    </pre>
+    <section>
+      <h2>Functions</h2>
+      <pre><code>def greet(name):
+    print(f"Hello, {name}!")
 
-    <h3>Functions</h3>
-    <p>Functions group reusable code:</p>
-    <pre>
-def greet(name):
-    print("Hello " + name)
-    </pre>
+greet("Bob")
+</code></pre>
+      <p>This defines a function named <code>greet</code> that prints a greeting.</p>
+    </section>
 
-    <h3>Quiz</h3>
-    <form id="quizForm">
-      <div class="quiz-question">
-        <p>1. What keyword is used to define a function in Python?</p>
-        <label><input type="radio" name="q1" value="def" /> def</label>
-        <label><input type="radio" name="q1" value="function" /> function</label>
-        <label><input type="radio" name="q1" value="func" /> func</label>
-      </div>
-      <div class="quiz-question">
-        <p>2. How do you write a comment in Python?</p>
-        <label><input type="radio" name="q2" value="#" /> #</label>
-        <label><input type="radio" name="q2" value="//" /> //</label>
-        <label><input type="radio" name="q2" value="/* */" /> /* */</label>
-      </div>
-      <button type="submit" id="submit-quiz">Submit Quiz</button>
-    </form>
+    <section>
+      <h2>Quiz</h2>
+      <div id="quizContainer"></div>
+      <button id="submitQuizBtn">Submit Quiz</button>
+      <div id="quizResult"></div>
+    </section>
 
-    <div id="quizResult" style="margin-top:20px; font-weight:bold;"></div>
+    <button onclick="location.href='dashboard.html'" style="margin-top:30px;">Back to Dashboard</button>
   </div>
 
+  <script src="quiz.js"></script>
   <script>
-    // Simple quiz logic
-    const quizForm = document.getElementById('quizForm');
-    const quizResult = document.getElementById('quizResult');
-
-    quizForm.addEventListener('submit', e => {
-      e.preventDefault();
-      let score = 0;
-      const answers = { q1: 'def', q2: '#' };
-
-      for (const [key, value] of Object.entries(answers)) {
-        const selected = quizForm.elements[key].value;
-        if (selected === value) score++;
+    const quizQuestions = [
+      {
+        question: "What data type is the variable 'age' in 'age = 25'?",
+        options: ["String", "Integer", "Boolean", "Float"],
+        answer: 1
+      },
+      {
+        question: "How do you define a function in Python?",
+        options: ["func", "define", "def", "function"],
+        answer: 2
+      },
+      {
+        question: "What will this print? print(f\"Hello, {name}!\")",
+        options: ["Hello, {name}!", "Hello, name!", "Hello, Bob!", "Syntax Error"],
+        answer: 2
       }
+    ];
 
-      quizResult.textContent = `You scored ${score} out of ${Object.keys(answers).length}.`;
-    });
+    window.onload = () => {
+      loadQuiz(quizQuestions);
+    };
   </script>
 </body>
 </html>
