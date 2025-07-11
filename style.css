@@ -1,309 +1,318 @@
-/* Reset & Basics */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* General Styles */
+body {
   font-family: 'Poppins', sans-serif;
-}
-
-body, html {
-  height: 100%;
-  background: linear-gradient(135deg, #b22222, #8b0000);
+  margin: 0;
+  background: #ff4d4d; /* red background */
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 /* Utility */
 .hidden {
-  display: none !important;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 30px;
-  background: #ff4500;
-  color: white;
-  padding: 12px 30px;
-  font-weight: 600;
-  font-size: 16px;
-  transition: background 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.6);
-}
-
-button:hover {
-  background: #ff6347;
-  box-shadow: 0 6px 20px rgba(255, 99, 71, 0.8);
+  display: none;
 }
 
 /* Login Page */
 .login-page {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-container {
-  background: rgba(255, 69, 0, 0.85);
-  padding: 40px 50px;
-  border-radius: 20px;
-  box-shadow: 0 0 50px #ff6347aa;
-  text-align: center;
+  background: #b30000;
+  padding: 40px 60px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   width: 350px;
-  animation: fadeIn 0.8s ease forwards;
+  text-align: center;
+  animation: fadeIn 1s ease forwards;
 }
 
 .login-container h1 {
-  font-weight: 700;
-  font-size: 2.4rem;
   margin-bottom: 10px;
+  font-weight: 700;
   letter-spacing: 2px;
-  text-shadow: 0 0 8px #ff6347;
 }
 
-.login-container .subtitle {
+.subtitle {
   margin-bottom: 25px;
-  font-weight: 400;
-  font-size: 1rem;
-  color: #f0e0e0;
-  text-shadow: 0 0 4px #ff6347bb;
-}
-
-.login-container input {
-  width: 100%;
-  padding: 14px 18px;
-  margin-bottom: 18px;
-  border-radius: 30px;
-  border: none;
-  font-size: 1rem;
-  outline: none;
-  box-shadow: inset 0 0 8px #fff3f3;
-  transition: box-shadow 0.3s ease;
-}
-
-.login-container input:focus {
-  box-shadow: 0 0 10px #ff6347;
-}
-
-/* Error message */
-.error-msg {
-  margin-top: -10px;
-  margin-bottom: 15px;
+  font-weight: 500;
   color: #ffcccc;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  box-shadow: 0 0 8px #ff6666;
+}
+
+button#loginBtn {
+  background: #ff0000;
+  border: none;
+  color: white;
   font-weight: 600;
-  min-height: 20px;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s ease;
+}
+
+button#loginBtn:hover {
+  background: #cc0000;
+}
+
+.error-msg {
+  color: #ff9999;
+  margin-top: 10px;
+  font-weight: 600;
 }
 
 /* Dashboard */
 .dashboard {
-  height: 100vh;
-  padding: 30px 50px;
-  display: flex;
-  flex-direction: column;
-  background: #1c0b0b;
-  animation: fadeIn 0.8s ease forwards;
+  width: 90vw;
+  max-width: 900px;
+  background: #b30000;
+  border-radius: 15px;
+  padding: 20px 30px 40px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+  animation: fadeIn 1s ease forwards;
 }
 
-.dashboard header {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
-.dashboard header h2 {
-  font-size: 2.2rem;
+header h2 {
   font-weight: 700;
-  letter-spacing: 1.5px;
-  color: #ff6347;
-  text-shadow: 0 0 10px #ff4500;
+  letter-spacing: 2px;
 }
 
-.dashboard header button {
+#logoutBtn {
   background: transparent;
-  color: #ff6347;
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 10px 20px;
-  border-radius: 50px;
-  box-shadow: 0 0 15px #ff4500;
-  transition: background 0.3s ease, color 0.3s ease;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 8px 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.dashboard header button:hover {
-  background: #ff6347;
-  color: #1c0b0b;
-  box-shadow: 0 0 25px #ff6347;
+#logoutBtn:hover {
+  background: #ff0000;
 }
 
-/* Course Cards */
+/* Courses Section */
 main {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  overflow-y: auto;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
 
 .course {
-  background: #330909;
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 0 15px #ff4500aa;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #ff6666;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .course:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 35px #ff6347dd;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.7);
 }
 
 .course h3 {
+  margin-top: 0;
   font-weight: 700;
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-  color: #ff6347;
-  text-shadow: 0 0 6px #ff4500;
 }
 
 .course p {
-  flex-grow: 1;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #ffd7d7;
-  margin-bottom: 25px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.start-course-btn {
+  background: #b30000;
+  border: none;
+  padding: 10px 18px;
+  color: white;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s ease;
+}
+
+.start-course-btn:hover {
+  background: #7a0000;
 }
 
 /* Modal Styles */
 .modal {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(20, 0, 0, 0.85);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(179, 0, 0, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease forwards;
-}
-
-.modal-content {
-  background: #2a0000;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 720px;
-  padding: 30px 40px;
-  box-shadow: 0 0 25px #ff4500;
-  position: relative;
-  color: #fff;
-  max-height: 80vh;
+  z-index: 9999;
   overflow-y: auto;
 }
 
-.modal-content h2 {
-  margin-bottom: 20px;
-  color: #ff6347;
-  font-weight: 700;
-  text-align: center;
-  text-shadow: 0 0 10px #ff4500;
+.modal-content {
+  background: #ff3333;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 100%;
+  padding: 30px 40px;
+  position: relative;
+  color: #fff;
+  box-shadow: 0 0 30px #ff0000;
+  animation: slideDown 0.5s ease forwards;
 }
 
-/* Close button */
 .close-btn {
   position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
-  background: none;
+  top: 20px;
+  right: 25px;
+  font-size: 28px;
   border: none;
-  color: #ff6347;
+  background: transparent;
+  color: white;
   cursor: pointer;
-  transition: color 0.2s ease;
+  font-weight: 700;
+  transition: color 0.3s ease;
 }
 
 .close-btn:hover {
-  color: #ff4500;
+  color: #000;
 }
 
-/* Start Course Button */
-.start-course-btn {
-  align-self: flex-start;
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
 }
 
-/* Quiz Section */
-#quizSection {
-  margin-top: 25px;
-}
-
-#quizForm {
-  display: flex;
-  flex-direction: column;
-}
-
-#quizForm label {
-  margin: 12px 0 6px;
+/* Course Content Styling */
+#courseContent h3, #courseContent h4 {
   font-weight: 600;
-  color: #ffa07a;
 }
 
-#quizForm input[type="text"], 
-#quizForm input[type="radio"] {
-  margin-right: 10px;
+#courseContent pre {
+  background: #b30000;
+  padding: 15px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+#courseContent ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+#courseContent code {
+  background: #ff9999;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: #660000;
+  font-weight: 700;
+}
+
+/* Quiz */
+#quizBtn {
+  display: block;
+  margin: 25px auto 0 auto;
+  background: #b30000;
+  border: none;
+  padding: 12px 30px;
+  color: white;
+  font-weight: 700;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+#quizBtn:hover {
+  background: #7a0000;
+}
+
+#quizSection {
+  margin-top: 30px;
+  border-top: 2px solid #fff;
+  padding-top: 25px;
+}
+
+.quiz-question {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.quiz-option {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 #submitQuiz {
-  margin-top: 20px;
-  width: fit-content;
-  align-self: flex-start;
+  margin-top: 15px;
+  background: #b30000;
+  border: none;
+  padding: 12px 30px;
+  color: white;
+  font-weight: 700;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
 }
 
-/* Quiz result */
+#submitQuiz:hover {
+  background: #7a0000;
+}
+
 #quizResult {
   margin-top: 20px;
   font-weight: 700;
-  font-size: 1.1rem;
-  color: #90ee90;
-}
-
-/* Scrollbar for dashboard and modal */
-.dashboard main::-webkit-scrollbar,
-.modal-content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.dashboard main::-webkit-scrollbar-track,
-.modal-content::-webkit-scrollbar-track {
-  background: #330909;
-  border-radius: 10px;
-}
-
-.dashboard main::-webkit-scrollbar-thumb,
-.modal-content::-webkit-scrollbar-thumb {
-  background: #ff4500;
-  border-radius: 10px;
+  font-size: 18px;
+  text-align: center;
+  color: #ffdddd;
 }
 
 /* Animations */
 @keyframes fadeIn {
-  0% {opacity: 0; transform: translateY(15px);}
+  0% {opacity: 0; transform: translateY(-10px);}
   100% {opacity: 1; transform: translateY(0);}
 }
 
-/* Responsive */
-@media (max-width: 480px) {
-  .login-container {
-    width: 90vw;
-    padding: 30px 20px;
-  }
-  .dashboard {
-    padding: 20px;
-  }
-  .dashboard header h2 {
-    font-size: 1.8rem;
-  }
-  main {
-    grid-template-columns: 1fr;
-  }
+@keyframes slideDown {
+  0% {opacity: 0; transform: translateY(-40px);}
+  100% {opacity: 1; transform: translateY(0);}
 }
