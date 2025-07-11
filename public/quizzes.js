@@ -6,11 +6,27 @@ const quizzes = {
       answer: 1,
     },
     {
-      question: "Which keyword is used to define a function in Python?",
-      choices: ["func", "def", "function", "define"],
+      question: "Which of these is a valid Python data type?",
+      choices: ["integer", "decimal", "string", "all of the above"],
+      answer: 3,
+    },
+    {
+      question: "What keyword starts a function definition?",
+      choices: ["function", "def", "fun", "define"],
+      answer: 1,
+    },
+    {
+      question: "Which statement is used for conditional branching?",
+      choices: ["if", "for", "while", "loop"],
+      answer: 0,
+    },
+    {
+      question: "What does the 'print' function do?",
+      choices: ["Returns a value", "Outputs to the screen", "Stores data", "Starts a loop"],
       answer: 1,
     },
   ],
+
   course2: [
     {
       question: "How do you write a comment in JavaScript?",
@@ -23,5 +39,6 @@ const quizzes = {
       answer: 3,
     },
   ],
-  // Add quizzes for other courses similarly...
+
+  // ... other courses quizzes ...
 };

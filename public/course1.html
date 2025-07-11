@@ -8,16 +8,68 @@
 <body>
   <div class="dashboard">
     <h1>Python for Beginners</h1>
-    <div class="lesson">
-      <h2>Lesson: Variables</h2>
-      <p>Python uses dynamic typing.</p>
-      <pre><code>x = 5
-y = "hello"
-z = True</code></pre>
-    </div>
 
-    <div id="quiz-container"></div>
-    <button onclick="submitQuiz()">Submit Quiz</button>
+    <section>
+      <h2>Introduction</h2>
+      <p>Python is a popular programming language known for its readability and simplicity. Let's learn some basics!</p>
+    </section>
+
+    <section>
+      <h2>Variables and Data Types</h2>
+      <p>Variables store information. You assign values using the <code>=</code> operator:</p>
+      <pre><code>x = 5
+name = "Alice"
+pi = 3.14
+is_happy = True</code></pre>
+      <p>Python data types include:</p>
+      <ul>
+        <li><strong>int</strong>: integers like 5, -3</li>
+        <li><strong>float</strong>: decimal numbers like 3.14</li>
+        <li><strong>str</strong>: strings like "hello"</li>
+        <li><strong>bool</strong>: True or False</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Control Flow: If Statements</h2>
+      <p>Run code conditionally with <code>if</code>:</p>
+      <pre><code>age = 18
+if age >= 18:
+    print("You are an adult.")
+else:
+    print("You are a minor.")</code></pre>
+      <p>Note the indentation - it defines blocks in Python.</p>
+    </section>
+
+    <section>
+      <h2>Loops: For and While</h2>
+      <p>Repeat actions using loops.</p>
+      <p><strong>For loop:</strong></p>
+      <pre><code>for i in range(5):
+    print(i)</code></pre>
+      <p><strong>While loop:</strong></p>
+      <pre><code>count = 0
+while count < 5:
+    print(count)
+    count += 1</code></pre>
+    </section>
+
+    <section>
+      <h2>Functions</h2>
+      <p>Group reusable code with functions:</p>
+      <pre><code>def greet(name):
+    print("Hello, " + name + "!")
+
+greet("Alice")
+greet("Bob")</code></pre>
+    </section>
+
+    <section id="quiz-section">
+      <h2>Quiz: Test Your Knowledge</h2>
+      <div id="quiz-container"></div>
+      <button onclick="submitQuiz()">Submit Quiz</button>
+    </section>
+
     <br /><br />
     <a href="dashboard.html">← Back to Dashboard</a>
   </div>
@@ -32,6 +84,12 @@ z = True</code></pre>
       const total = window.getQuizTotal();
       const username = localStorage.getItem("loggedInUser");
 
+      if (!username) {
+        alert("You must be logged in to submit the quiz.");
+        window.location.href = "index.html";
+        return;
+      }
+
       fetch("/api/save-result", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -44,9 +102,13 @@ z = True</code></pre>
       })
         .then((res) => res.json())
         .then((data) => {
-          alert(`Quiz submitted! Your score: ${score}/${total}`);
+          if (data.success) {
+            alert(`Quiz submitted! Your score: ${score} / ${total}`);
+          } else {
+            alert("Failed to save your quiz results.");
+          }
         })
-        .catch(() => alert("Failed to save your result."));
+        .catch(() => alert("Error submitting quiz result."));
     }
   </script>
 </body>

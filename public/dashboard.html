@@ -2,35 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dashboard</title>
+  <title>Dashboard - Programming Courses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="dashboard">
-    <h1>Welcome, <span id="user-name"></span>!</h1>
-    <h2>Your Courses:</h2>
-    <ul>
-      <li><a href="course1.html">Python for Beginners</a></li>
-      <li><a href="course2.html">JavaScript Essentials</a></li>
-      <li><a href="course3.html">HTML & CSS</a></li>
-      <li><a href="course4.html">Java Programming</a></li>
-      <li><a href="course5.html">C++ Data Structures</a></li>
-    </ul>
-    <a href="results.html">📊 View Quiz Results</a><br />
-    <a href="index.html" onclick="logout()">Log Out</a>
+    <h1>Welcome, <span id="usernameDisplay"></span>!</h1>
+    <div class="courses">
+      <div class="course-card" onclick="window.location.href='course1.html'">
+        <h2>Python for Beginners</h2>
+        <p>Learn the basics of Python programming including variables, loops, and functions.</p>
+        <button onclick="window.location.href='course1.html'; event.stopPropagation();">Start Course</button>
+      </div>
+      <div class="course-card" onclick="window.location.href='course2.html'">
+        <h2>JavaScript Essentials</h2>
+        <p>Understand the fundamentals of JavaScript and start building interactive websites.</p>
+        <button onclick="window.location.href='course2.html'; event.stopPropagation();">Start Course</button>
+      </div>
+      <div class="course-card" onclick="window.location.href='course3.html'">
+        <h2>HTML & CSS</h2>
+        <p>Design beautiful websites using HTML and CSS with modern practices.</p>
+        <button onclick="window.location.href='course3.html'; event.stopPropagation();">Start Course</button>
+      </div>
+      <div class="course-card" onclick="window.location.href='course4.html'">
+        <h2>Java Fundamentals</h2>
+        <p>Master core Java concepts, object-oriented programming, and more.</p>
+        <button onclick="window.location.href='course4.html'; event.stopPropagation();">Start Course</button>
+      </div>
+      <div class="course-card" onclick="window.location.href='course5.html'">
+        <h2>C++ Basics</h2>
+        <p>Get started with C++ syntax, variables, loops, and functions.</p>
+        <button onclick="window.location.href='course5.html'; event.stopPropagation();">Start Course</button>
+      </div>
+    </div>
   </div>
 
   <script>
     const user = localStorage.getItem("loggedInUser");
     if (!user) {
-      // Not logged in, redirect to login page
       window.location.href = "index.html";
     } else {
-      document.getElementById("user-name").textContent = user;
-    }
-
-    function logout() {
-      localStorage.removeItem("loggedInUser");
+      document.getElementById("usernameDisplay").textContent = user;
     }
   </script>
 </body>
