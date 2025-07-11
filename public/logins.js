@@ -23,13 +23,12 @@ async function loginUser() {
       } else {
         errorMsg.textContent = data.message || 'Login failed';
       }
-    } else if (response.status === 401) {
-      errorMsg.textContent = 'Invalid username or password.';
     } else {
-      errorMsg.textContent = 'Server error, please try again later.';
+      errorMsg.textContent = 'Invalid username or password.';
     }
   } catch (err) {
-    errorMsg.textContent = 'Network error, please check your connection.';
+    errorMsg.textContent = 'Network error. Try again later.';
     console.error(err);
   }
 }
+<script src="login.js"></script>
