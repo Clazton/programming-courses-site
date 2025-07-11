@@ -1,10 +1,4 @@
 [
-  {
-    "username": "student",
-    "password": "password123"
-  },
-  {
-    "username": "admin",
-    "password": "adminpass"
-  }
+  { "username": "student", "password": "password123" },
+  { "username": "admin", "password": "adminpass" }
 ]

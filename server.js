@@ -7,15 +7,13 @@ import { fileURLToPath } from 'url';
 const app = express();
 const PORT = 3000;
 
-// Setup __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Middleware
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// === Login Endpoint ===
+// Login endpoint
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
   const users = JSON.parse(fs.readFileSync('users.json', 'utf8'));
@@ -31,7 +29,7 @@ app.post('/api/login', (req, res) => {
   }
 });
 
-// === Save Quiz Result ===
+// Save quiz result
 app.post('/api/save-result', (req, res) => {
   const { username, course, score, total } = req.body;
 
@@ -45,7 +43,6 @@ app.post('/api/save-result', (req, res) => {
     const data = fs.readFileSync('results.json', 'utf8');
     results = JSON.parse(data);
   } catch (err) {
-    // File may not exist or be empty
     results = [];
   }
 
@@ -67,7 +64,7 @@ app.post('/api/save-result', (req, res) => {
   }
 });
 
-// === Get All Quiz Results (filtered on frontend by user) ===
+// Get all quiz results
 app.get('/api/results', (req, res) => {
   try {
     const data = fs.readFileSync('results.json', 'utf8');
@@ -78,7 +75,6 @@ app.get('/api/results', (req, res) => {
   }
 });
 
-// === Start Server ===
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at: http://localhost:${PORT}`);
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });

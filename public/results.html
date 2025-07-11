@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Quiz Results</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <h1>Your Quiz Results</h1>
+    <table border="1" id="results-table">
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Score</th>
+          <th>Total</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <br />
+    <a href="dashboard.html">← Back to Dashboard</a>
+  </div>
+
+  <script>
+    const user = localStorage.getItem("loggedInUser");
+    if (!user) {
+      window.location.href = "index.html";
+    } else {
+      fetch("/api/results")
+        .then((res) => res.json())
+        .then((data) => {
+          const tbody = document.querySelector("#results-table tbody");
+          data
+            .filter((r) => r.username === user)
+            .forEach((r) => {
+              const tr = document.createElement("tr");
+              tr.innerHTML = `
+                <td>${r.course}</td>
+                <td>${r.score}</td>
+                <td>${r.total}</td>
+                <td>${new Date(r.timestamp).toLocaleString()}</td>
+              `;
+              tbody.appendChild(tr);
+            });
+        });
+    }
+  </script>
+</body>
+</html>

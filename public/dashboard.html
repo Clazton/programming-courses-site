@@ -1,7 +1,37 @@
-<ul>
-  <li><a href="course1.html">1. Python for Beginners</a></li>
-  <li><a href="course2.html">2. JavaScript Essentials</a></li>
-  <li><a href="course3.html">3. Web Dev with HTML & CSS</a></li>
-  <li><a href="course4.html">4. Java Programming</a></li>
-  <li><a href="course5.html">5. C++ Data Structures</a></li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <h1>Welcome, <span id="user-name"></span>!</h1>
+    <h2>Your Courses:</h2>
+    <ul>
+      <li><a href="course1.html">Python for Beginners</a></li>
+      <li><a href="course2.html">JavaScript Essentials</a></li>
+      <li><a href="course3.html">HTML & CSS</a></li>
+      <li><a href="course4.html">Java Programming</a></li>
+      <li><a href="course5.html">C++ Data Structures</a></li>
+    </ul>
+    <a href="results.html">📊 View Quiz Results</a><br />
+    <a href="index.html" onclick="logout()">Log Out</a>
+  </div>
+
+  <script>
+    const user = localStorage.getItem("loggedInUser");
+    if (!user) {
+      // Not logged in, redirect to login page
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("user-name").textContent = user;
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+    }
+  </script>
+</body>
+</html>
