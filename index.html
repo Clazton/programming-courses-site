@@ -1,86 +1,448 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CodeHub - Learn Programming</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- Login Page -->
-  <div class="login-page" id="loginPage">
-    <div class="login-container">
-      <h1>Welcome to CodeHub</h1>
-      <p class="subtitle">Login to access your courses</p>
-      <input type="text" id="username" placeholder="Username" autocomplete="off" />
-      <input type="password" id="password" placeholder="Password" autocomplete="off" />
-      <button id="loginBtn">Login</button>
-      <p class="error-msg" id="loginError"></p>
-    </div>
-  </div>
+// script.js
 
-  <!-- Dashboard -->
-  <div class="dashboard hidden" id="dashboard">
-    <header>
-      <h2>Your Programming Courses</h2>
-      <button id="logoutBtn" title="Logout">Logout</button>
-    </header>
+const loginPage = document.getElementById('loginPage');
+const dashboard = document.getElementById('dashboard');
+const loginBtn = document.getElementById('loginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+const loginError = document.getElementById('loginError');
 
-    <main>
-      <section class="course" data-course="html-css">
-        <h3>HTML & CSS Fundamentals</h3>
-        <p>Master the building blocks of web pages: semantic HTML, responsive design, Flexbox, and animations.</p>
-        <button class="start-course-btn">Start Course</button>
-      </section>
+const courseModal = document.getElementById('courseModal');
+const closeModalBtn = document.getElementById('closeModal');
+const courseTitleEl = document.getElementById('courseTitle');
+const courseContentEl = document.getElementById('courseContent');
+const quizBtn = document.getElementById('quizBtn');
+const quizSection = document.getElementById('quizSection');
+const quizForm = document.getElementById('quizForm');
+const submitQuizBtn = document.getElementById('submitQuiz');
+const quizResult = document.getElementById('quizResult');
 
-      <section class="course" data-course="javascript">
-        <h3>JavaScript Essentials</h3>
-        <p>Learn JavaScript basics, ES6+ features, asynchronous programming, and DOM manipulation.</p>
-        <button class="start-course-btn">Start Course</button>
-      </section>
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
 
-      <section class="course" data-course="python">
-        <h3>Python Programming</h3>
-        <p>Explore Python syntax, data structures, file handling, and object-oriented programming.</p>
-        <button class="start-course-btn">Start Course</button>
-      </section>
+const USERNAME = 'admin';
+const PASSWORD = '1234';
 
-      <section class="course" data-course="react">
-        <h3>React.js Development</h3>
-        <p>Understand components, hooks, state management, routing, and how to build modern SPAs.</p>
-        <button class="start-course-btn">Start Course</button>
-      </section>
+const courses = {
+  'html-css': {
+    title: "HTML & CSS Fundamentals",
+    content: `
+      <h3>HTML Basics</h3>
+      <p>HTML is the language used to structure webpages. It uses tags to organize content.</p>
 
-      <section class="course" data-course="nodejs">
-        <h3>Node.js & Express</h3>
-        <p>Build backend servers, REST APIs, and learn middleware and database integration.</p>
-        <button class="start-course-btn">Start Course</button>
-      </section>
-    </main>
-  </div>
+      <h4>1. HTML Document Structure</h4>
+      <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+      </pre>
+      <p>This is a simple HTML page with a heading and a paragraph.</p>
 
-  <!-- Course Detail & Quiz Modal -->
-  <div class="modal hidden" id="courseModal">
-    <div class="modal-content">
-      <button class="close-btn" id="closeModal">&times;</button>
-      <h2 id="courseTitle">Course Title</h2>
-      <div id="courseContent">
-        <!-- Dynamically loaded content -->
-      </div>
-      <button id="quizBtn" class="hidden">Take Quiz</button>
+      <h4>2. Common HTML Tags</h4>
+      <ul>
+        <li><code>&lt;h1&gt;...&lt;/h1&gt;</code> to <code>&lt;h6&gt;...&lt;/h6&gt;</code>: Headings</li>
+        <li><code>&lt;p&gt;...&lt;/p&gt;</code>: Paragraphs</li>
+        <li><code>&lt;a href="url"&gt;...&lt;/a&gt;</code>: Links</li>
+        <li><code>&lt;img src="image.jpg" alt="description"&gt;</code>: Images</li>
+        <li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>: Lists</li>
+      </ul>
 
-      <div id="quizSection" class="hidden">
-        <h3>Quiz</h3>
-        <form id="quizForm">
-          <!-- Quiz questions injected here -->
-        </form>
-        <button id="submitQuiz">Submit Quiz</button>
-        <p id="quizResult"></p>
-      </div>
-    </div>
-  </div>
+      <h4>3. Example: Creating a Link</h4>
+      <pre>
+&lt;a href="https://www.example.com"&gt;Visit Example&lt;/a&gt;
+      </pre>
 
-  <script src="script.js"></script>
-</body>
-</html>
+      <h4>4. CSS Basics</h4>
+      <p>CSS is used to style and layout webpages. It controls colors, fonts, spacing, and more.</p>
+
+      <h4>5. CSS Syntax</h4>
+      <pre>
+selector {
+  property: value;
+}
+      </pre>
+      <p>Example: To make all paragraphs red:</p>
+      <pre>
+p {
+  color: red;
+}
+      </pre>
+
+      <h4>6. Common Properties</h4>
+      <ul>
+        <li><code>color</code>: Text color</li>
+        <li><code>background-color</code>: Background color</li>
+        <li><code>font-size</code>: Text size</li>
+        <li><code>margin</code>: Space outside elements</li>
+        <li><code>padding</code>: Space inside elements</li>
+      </ul>
+
+      <h4>7. Example: Styling a Button</h4>
+      <pre>
+button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+      </pre>
+
+      <h4>8. Practice</h4>
+      <p>Create a simple webpage with headings, paragraphs, links, and style them with CSS!</p>
+    `,
+    quiz: [
+      {
+        q: "What does HTML stand for?",
+        a: [
+          "HyperText Markup Language",
+          "Home Tool Markup Language",
+          "Hyperlinks and Text Markup Language"
+        ],
+        correct: 0
+      },
+      {
+        q: "Which tag creates a hyperlink?",
+        a: ["&lt;a&gt;", "&lt;link&gt;", "&lt;href&gt;"],
+        correct: 0
+      },
+      {
+        q: "Which CSS property changes text color?",
+        a: ["font-style", "color", "text-decoration"],
+        correct: 1
+      }
+    ]
+  },
+
+  javascript: {
+    title: "JavaScript Essentials",
+    content: `
+      <h3>JavaScript Basics</h3>
+      <p>JavaScript adds interactivity to webpages, letting you create dynamic content.</p>
+
+      <h4>1. Variables and Data Types</h4>
+      <pre>
+let name = "Alice";    // String
+let age = 25;          // Number
+let isStudent = true;  // Boolean
+      </pre>
+
+      <h4>2. Functions</h4>
+      <pre>
+function greet() {
+  alert("Hello, World!");
+}
+greet();
+      </pre>
+
+      <h4>3. Events</h4>
+      <p>JavaScript can respond to user actions like clicks.</p>
+      <pre>
+button.addEventListener('click', () => {
+  alert('Button clicked!');
+});
+      </pre>
+
+      <h4>4. Practice</h4>
+      <p>Create a button that shows an alert when clicked.</p>
+    `,
+    quiz: [
+      {
+        q: "Which keyword declares a variable with block scope?",
+        a: ["var", "let", "const"],
+        correct: 1
+      },
+      {
+        q: "What does the function 'alert()' do?",
+        a: ["Shows a popup message", "Logs to console", "Changes HTML content"],
+        correct: 0
+      },
+      {
+        q: "How do you add an event listener to a button click?",
+        a: [
+          "button.onClick = function() {}",
+          "button.addEventListener('click', function() {})",
+          "button.listen('click')"
+        ],
+        correct: 1
+      }
+    ]
+  },
+
+  python: {
+    title: "Python Programming",
+    content: `
+      <h3>Python Basics</h3>
+      <p>Python is a popular programming language for beginners and professionals.</p>
+
+      <h4>1. Variables and Types</h4>
+      <pre>
+name = "Alice"
+age = 25
+is_student = True
+      </pre>
+
+      <h4>2. Control Structures</h4>
+      <pre>
+if age &gt;= 18:
+  print("Adult")
+else:
+  print("Minor")
+      </pre>
+
+      <h4>3. Loops</h4>
+      <pre>
+for i in range(5):
+  print(i)
+      </pre>
+
+      <h4>4. Practice</h4>
+      <p>Write a program that prints numbers 0 to 4 using a loop.</p>
+    `,
+    quiz: [
+      {
+        q: "How do you write a comment in Python?",
+        a: ["// comment", "# comment", "<!-- comment -->"],
+        correct: 1
+      },
+      {
+        q: "What will 'print(2 ** 3)' output?",
+        a: ["6", "8", "9"],
+        correct: 1
+      },
+      {
+        q: "Which keyword starts a for loop?",
+        a: ["for", "while", "loop"],
+        correct: 0
+      }
+    ]
+  },
+
+  react: {
+    title: "React.js Development",
+    content: `
+      <h3>React.js Basics</h3>
+      <p>React is a JavaScript library for building user interfaces.</p>
+
+      <h4>1. Components</h4>
+      <pre>
+function Hello() {
+  return &lt;h1&gt;Hello, React!&lt;/h1&gt;;
+}
+      </pre>
+
+      <h4>2. JSX</h4>
+      <p>JSX is a syntax that looks like HTML in JavaScript.</p>
+
+      <h4>3. State</h4>
+      <pre>
+const [count, setCount] = React.useState(0);
+      </pre>
+
+      <h4>4. Practice</h4>
+      <p>Create a component that shows a button and a count that increases when clicked.</p>
+    `,
+    quiz: [
+      {
+        q: "What is JSX?",
+        a: ["A CSS framework", "JavaScript syntax extension", "A database"],
+        correct: 1
+      },
+      {
+        q: "How do you create a React component?",
+        a: [
+          "function MyComponent() {}",
+          "const MyComponent = () => {}",
+          "Both are correct"
+        ],
+        correct: 2
+      },
+      {
+        q: "Which hook manages state in functional components?",
+        a: ["useState", "useEffect", "useContext"],
+        correct: 0
+      }
+    ]
+  },
+
+  nodejs: {
+    title: "Node.js & Express",
+    content: `
+      <h3>Node.js & Express</h3>
+      <p>Node.js allows you to run JavaScript on the server side. Express is a framework for Node.js to build web servers.</p>
+
+      <h4>1. Setting up a Server</h4>
+      <pre>
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
+});
+      </pre>
+
+      <h4>2. Routing</h4>
+      <p>Express lets you handle different URLs with routes.</p>
+
+      <h4>3. Middleware</h4>
+      <p>Functions that run between request and response.</p>
+
+      <h4>4. Practice</h4>
+      <p>Build a simple server that responds with 'Hello World' on the homepage.</p>
+    `,
+    quiz: [
+      {
+        q: "Which framework is commonly used with Node.js for building web servers?",
+        a: ["React", "Express", "Angular"],
+        correct: 1
+      },
+      {
+        q: "What method handles HTTP GET requests in Express?",
+        a: ["app.post()", "app.get()", "app.put()"],
+        correct: 1
+      },
+      {
+        q: "What does middleware do in Express?",
+        a: [
+          "Handles errors only",
+          "Processes requests between client and server",
+          "Stores data in database"
+        ],
+        correct: 1
+      }
+    ]
+  }
+};
+
+// Login
+loginBtn.addEventListener('click', () => {
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  if (username === USERNAME && password === PASSWORD) {
+    loginError.textContent = '';
+    loginPage.classList.add('hidden');
+    dashboard.classList.remove('hidden');
+    usernameInput.value = '';
+    passwordInput.value = '';
+  } else {
+    loginError.textContent = 'Incorrect username or password.';
+  }
+});
+
+// Logout
+logoutBtn.addEventListener('click', () => {
+  dashboard.classList.add('hidden');
+  loginPage.classList.remove('hidden');
+  courseModal.classList.add('hidden');
+  quizSection.classList.add('hidden');
+  quizBtn.classList.add('hidden');
+  quizResult.textContent = '';
+  quizForm.innerHTML = '';
+});
+
+// Start Course buttons
+document.querySelectorAll('.start-course-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const courseKey = button.closest('.course').dataset.course;
+    openCourseModal(courseKey);
+  });
+});
+
+// Open Course Modal and load content
+function openCourseModal(courseKey) {
+  const course = courses[courseKey];
+  if (!course) return;
+
+  courseTitleEl.textContent = course.title;
+  courseContentEl.innerHTML = course.content;
+  quizSection.classList.add('hidden');
+  quizBtn.classList.remove('hidden');
+  quizResult.textContent = '';
+  quizForm.innerHTML = '';
+  courseModal.classList.remove('hidden');
+
+  // Save current course key for quiz
+  courseModal.dataset.currentCourse = courseKey;
+}
+
+// Close Modal
+closeModalBtn.addEventListener('click', () => {
+  courseModal.classList.add('hidden');
+  quizSection.classList.add('hidden');
+  quizBtn.classList.remove('hidden');
+  quizResult.textContent = '';
+  quizForm.innerHTML = '';
+});
+
+// Show Quiz
+quizBtn.addEventListener('click', () => {
+  const courseKey = courseModal.dataset.currentCourse;
+  if (!courseKey) return;
+  const course = courses[courseKey];
+  if (!course.quiz) return;
+
+  quizBtn.classList.add('hidden');
+  quizSection.classList.remove('hidden');
+  quizResult.textContent = '';
+
+  // Build quiz form
+  quizForm.innerHTML = '';
+  course.quiz.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    const questionP = document.createElement('p');
+    questionP.className = 'quiz-question';
+    questionP.textContent = `Q${index + 1}: ${item.q}`;
+    qDiv.appendChild(questionP);
+
+    item.a.forEach((option, i) => {
+      const label = document.createElement('label');
+      label.className = 'quiz-option';
+
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'q' + index;
+      input.value = i;
+
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(option));
+      qDiv.appendChild(label);
+    });
+
+    quizForm.appendChild(qDiv);
+  });
+});
+
+// Submit Quiz
+submitQuizBtn.addEventListener('click', () => {
+  const courseKey = courseModal.dataset.currentCourse;
+  if (!courseKey) return;
+  const course = courses[courseKey];
+  if (!course.quiz) return;
+
+  let score = 0;
+  let total = course.quiz.length;
+
+  for (let i = 0; i < total; i++) {
+    const selected = quizForm.querySelector(`input[name="q${i}"]:checked`);
+    if (!selected) {
+      alert(`Please answer question ${i + 1}`);
+      return;
+    }
+    if (parseInt(selected.value) === course.quiz[i].correct) {
+      score++;
+    }
+  }
+
+  quizResult.textContent = `You scored ${score} out of ${total}!`;
+});
