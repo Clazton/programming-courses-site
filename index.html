@@ -1,110 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premade Discord Bots</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scriptas Bot Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #1a0000;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #140000;
       color: #fff;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     header {
-      background-color: #ff1a1a;
-      padding: 1rem 2rem;
+      background: linear-gradient(90deg, #ff1a1a, #b30000);
+      padding: 1.5rem 2rem;
       text-align: center;
-      font-size: 2rem;
-      font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-      animation: fadeInDown 1s ease-out;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      animation: slideDown 1s ease-out;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      animation: fadeIn 1.5s ease;
     }
 
     .bot-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      padding: 2rem;
     }
 
     .bot-card {
-      background-color: #330000;
+      background-color: #1a0000;
       border: 2px solid #ff3333;
-      border-radius: 10px;
+      border-radius: 15px;
       padding: 1.5rem;
       text-align: center;
-      box-shadow: 0 0 15px rgba(255, 51, 51, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeInUp 0.8s ease;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: popIn 0.8s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+      cursor: pointer;
     }
 
     .bot-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(255, 51, 51, 0.6);
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
     }
 
     .bot-title {
       font-size: 1.5rem;
-      margin-bottom: 0.5rem;
       color: #ff6666;
+      margin-bottom: 0.5rem;
+    }
+
+    .bot-desc {
+      font-size: 0.95rem;
+      color: #ddd;
     }
 
     .bot-price {
+      margin-top: 1rem;
       font-size: 1.2rem;
-      margin-top: 0.5rem;
       font-weight: bold;
-      color: #ffffff;
+      color: #fff;
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .tag {
+      background-color: #ff1a1a;
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      margin-top: 0.8rem;
+      display: inline-block;
+      animation: glow 2s infinite alternate;
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: #1a0000;
+      color: #999;
+      margin-top: 3rem;
+    }
+
+    @keyframes slideDown {
+      0% { transform: translateY(-100%); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes popIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 5px #ff1a1a;
+      }
+      to {
+        box-shadow: 0 0 20px #ff1a1a;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
   </style>
 </head>
 <body>
+
   <header>
-    🚀 Premade Discord Bots – Red Zone
+    🚀 Scriptas Bot Store
   </header>
 
-  <section class="bot-grid">
-    <div class="bot-card">
-      <div class="bot-title">🎫 Ticket System Bot</div>
-      <p>Manage support tickets easily with auto transcripts & categories.</p>
-      <div class="bot-price">$4</div>
+  <div class="container">
+    <div class="intro">
+      <h2>💻 Affordable Discord Bots – Click to Order</h2>
+      <p>Every bot is $4 unless marked. Built fast, hosted easy, managed clean.</p>
     </div>
 
-    <div class="bot-card">
-      <div class="bot-title">🛡️ Moderation Bot</div>
-      <p>Kick, ban, mute, logs, and anti-spam features built-in.</p>
-      <div class="bot-price">$4</div>
-    </div>
+    <div class="bot-grid">
+      <a href="https://discord.gg/scriptas" target="_blank">
+        <div class="bot-card">
+          <div class="bot-title">🎫 Ticket System Bot</div>
+          <p class="bot-desc">Auto-close, transcript, category-based ticketing made simple.</p>
+          <div class="bot-price">$4</div>
+        </div>
+      </a>
 
-    <div class="bot-card">
-      <div class="bot-title">📈 Leveling Bot</div>
-      <p>XP, rank cards, and rewards for active members.</p>
-      <div class="bot-price">$4</div>
-    </div>
+      <a href="https://discord.gg/scriptas" target="_blank">
+        <div class="bot-card">
+          <div class="bot-title">🛡️ Moderation Bot</div>
+          <p class="bot-desc">Kick, ban, logs, timeouts, anti-spam. Fully automated mod power.</p>
+          <div class="bot-price">$4</div>
+        </div>
+      </a>
 
-    <div class="bot-card">
-      <div class="bot-title">📢 Announcement Bot</div>
-      <p>Scheduled messages, embed editor, and auto ping system.</p>
-      <div class="bot-price">$4</div>
-    </div>
+      <a href="https://discord.gg/scriptas" target="_blank">
+        <div class="bot-card">
+          <div class="bot-title">📈 Leveling Bot</div>
+          <p class="bot-desc">XP, rank cards, leaderboard, and reward roles.</p>
+          <div class="bot-price">$4</div>
+        </div>
+      </a>
 
-    <div class="bot-card">
-      <div class="bot-title">🔥 OP Protection Bot</div>
-      <p>Raid protection, anti-nuke, whitelist roles, and logs.</p>
-      <div class="bot-price">$5</div>
+      <a href="https://discord.gg/scriptas" target="_blank">
+        <div class="bot-card">
+          <div class="bot-title">📢 Announcement Bot</div>
+          <p class="bot-desc">Scheduled pings, embeds, role mentions, and template saving.</p>
+          <div class="bot-price">$4</div>
+        </div>
+      </a>
+
+      <a href="https://discord.gg/scriptas" target="_blank">
+        <div class="bot-card">
+          <div class="bot-title">🔥 OP Protection Bot</div>
+          <p class="bot-desc">Anti-nuke, raid protection, logging, whitelisting, rollback.</p>
+          <div class="bot-price">$5</div>
+          <div class="tag">🔥 Most Bought</div>
+        </div>
+      </a>
     </div>
-  </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Scriptas Bot Store. Join us on <a href="https://discord.gg/scriptas" target="_blank">Discord</a>.
+  </footer>
+
 </body>
 </html>
